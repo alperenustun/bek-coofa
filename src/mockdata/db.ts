@@ -33,6 +33,10 @@ export const stories = [
 
 export const menuLinks: { name: string; href: string }[] = [
     {
+        name: "Ürünler",
+        href: "/urunler",
+    },
+    {
         name: "Formlar",
         href: "/formlar",
     },

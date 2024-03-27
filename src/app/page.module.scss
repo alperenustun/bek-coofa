@@ -1,6 +1,5 @@
+@import "../styles/abstracts/placeholders";
+
 .main{
-  min-height: 100vh;
-  max-width: 1500px;
-  margin: 0 auto;
-  display: block;
+  @extend %main-container;
 }

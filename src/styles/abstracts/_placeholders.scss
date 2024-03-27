@@ -21,18 +21,13 @@
 
 %main-container {
   min-height: 100vh;
-  width: calc(100% - 100px);
-  padding: 1em;
-  margin: 0 0 0 auto;
-  overflow-y: auto;
-  @extend %custom-scroll-bar;
-  font-family: $primary-font, sans-serif;
-  background: $primary-bg;
-  color: $primary-font-color;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: block;
 }
 
-@media (max-width: 768px) {
-  %main-container {
-    width: calc(100% - 70px);
-  }
-}
+// @media (max-width: 768px) {
+//   %main-container {
+//     max-width: 1500px;
+//   }
+// }
