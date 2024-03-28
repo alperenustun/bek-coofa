@@ -1,14 +1,21 @@
 import Link from "next/link";
 import styles from "./ProductsHeader.module.scss";
+import ProductsFilter from "./ProductsFilter/ProductsFilter";
 
-interface ProductsHeaderProps {}
+interface ProductsHeaderProps {
+  filterValue: string;
+  setFilterValue: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const ProductsHeader: React.FC<ProductsHeaderProps> = () => {
+const ProductsHeader: React.FC<ProductsHeaderProps> = ({ filterValue, setFilterValue}) => {
   return (
     <header className={styles.header}>
-      <Link className={styles.returnBtn} href="/">
-        Ana Ekrana Dön
-      </Link>
+      <div className={styles.filterWrapper}>
+        <Link className={styles.returnBtn} href="/">
+          Ana Ekrana Dön
+        </Link>
+        <ProductsFilter filterValue={filterValue} setFilterValue={setFilterValue} />
+      </div>
       <p>Sponsorlu Ürünler Listesi</p>
     </header>
   );
