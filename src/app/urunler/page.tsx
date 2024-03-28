@@ -4,6 +4,7 @@ import styles from "./page.module.scss";
 import { Product } from "@/types/product";
 import ProductsHeader from "@/components/ProductsHeader/ProductsHeader";
 import ProductCard from "@/components/ProductCard/ProductCard";
+import CheckoutSidebar from "@/components/CheckoutSidebar/CheckoutSidebar";
 
 export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -43,16 +44,19 @@ export default function Products() {
   }
 
   return (
-    <main className={styles.main}>
+    <div className={styles.main}>
       <ProductsHeader
         filterValue={filterValue}
         setFilterValue={setFilterValue}
       />
-      <div className={styles.productsContainer}>
-        {filteredProducts.map((product: any) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-    </main>
+      <main className={styles.content}>
+        <div className={styles.productsContainer}>
+          {filteredProducts.map((product: any) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+        <CheckoutSidebar />
+      </main>
+    </div>
   );
 }

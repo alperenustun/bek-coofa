@@ -1,15 +1,19 @@
-$primary-bg: #393C49;
-$secondary-bg: #1F1D2B;
-$accent-color: #EA7C69;
-$primary-font-color: #fff;
-
-$button-shadow: 0 8px 24px #eb7d6a32, 0 0 8px #EA7C69;
-
-$linear-color: linear-gradient(
-  to bottom right,
-  rgba(186, 186, 251, 1),
-  rgba(237, 145, 167, 1),
-  rgba(241, 169, 96, 1)
+$primary-bg: #393c49;
+$primary-color: #1497eb;
+$point-gradient: linear-gradient(
+  to right,
+  #0d5acd,
+  #006ad6,
+  #0079df,
+  #0088e5,
+  #1497eb
 );
 
-$primary-font: "Outfit", sans-serif;
+$btn-gradient: linear-gradient(
+  to right,
+  #da5d0d,
+  #de5f0d,
+  #e3610d,
+  #e7620c,
+  #ec640c
+);

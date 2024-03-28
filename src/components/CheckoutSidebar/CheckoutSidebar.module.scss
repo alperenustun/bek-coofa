@@ -1,0 +1,71 @@
+@import "../../styles/abstracts/variables";
+
+.sidebar {
+  width: 300px;
+  height: fit-content;
+  position: sticky;
+  right: 0;
+  top: 10px;
+
+  .pointDisplayer {
+    background-image: $point-gradient;
+    color: white;
+    padding: 0.5em;
+    border-radius: 6px;
+    position: relative;
+
+    .bekPoint {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: white;
+      color: $primary-color;
+      padding: 0.7em 0.8em;
+      border: 1px solid $primary-color;
+      border-radius: 10px;
+    }
+  }
+
+  .detailsContainer {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    margin-top: 20px;
+
+    .titleWrapper {
+      display: flex;
+      justify-content: space-between;
+      background-color: #ececec;
+      padding: 0.8em 0.5em;
+    }
+
+    .detailsWrapper {
+      padding: 1em 0.5em;
+
+      .remainedPoint {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .checkoutBtn {
+    background-image: $btn-gradient;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+    &:active {
+      transform: translateY(3px);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./ProductsFilter.module.scss";
 
 interface ProductsFilterProps {
@@ -23,6 +24,7 @@ const ProductsFilter: React.FC<ProductsFilterProps> = ({
         onChange={handleFilterChange}
         placeholder="Ürün ara..."
       />
+      <Image className={styles.searchIcon} src="/search-icon.svg" alt="search-icon" width={20} height={20} />
     </div>
   );
 };
