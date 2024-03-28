@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./ProductCard.module.scss";
 import { useState } from "react";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: {
@@ -29,14 +30,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   return (
     <div className={styles.main}>
-      <Image
-        src={image}
-        alt={title}
-        width={200}
-        height={200}
-        style={{ width: "100%", height: "200px" }}
-      />
-      <h3 className={styles.title}>{title}</h3>
+      <Link href={`urunler/${product.id}`}>
+        <Image
+          src={image}
+          alt={title}
+          width={200}
+          height={200}
+          style={{ width: "100%", height: "200px" }}
+        />
+        <h3 className={styles.title}>{title}</h3>
+      </Link>
       <div className={styles.pricesWrapper}>
         <p>{price} BEK Puan</p>
         <div className={styles.quantityWrapper}>
