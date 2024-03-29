@@ -22,7 +22,7 @@ const SidebarDropdown: React.FC = () => {
       {isOpen && (
         <div className={styles.dropdownContent}>
           {menuLinks.map((link) => (
-            <Link className={styles.menuLink} href={link.href}>
+            <Link key={link.name} className={styles.menuLink} href={link.href}>
               {link.name}
             </Link>
           ))}
