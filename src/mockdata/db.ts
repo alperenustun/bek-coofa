@@ -56,28 +56,28 @@ export const stories = [
 ];
 
 export const menuLinks: { name: string; href: string }[] = [
-    {
-        name: "Ürünler",
-        href: "/urunler",
-    },
-    {
-        name: "Formlar",
-        href: "/formlar",
-    },
-    {
-        name: "Faydalı Linkler",
-        href: "/linkler",
-    },
-    {
-        name: "Araçlar",
-        href: "/araclar",
-    },
-    {
-        name: "E-Fatura",
-        href: "/efatura",
-    },
-    {
-        name: "BEK Akademi",
-        href: "/bek-akademi",
-    }
-]
+  {
+    name: "Ürünler",
+    href: "/urunler",
+  },
+  {
+    name: "Formlar",
+    href: "/formlar",
+  },
+  {
+    name: "Faydalı Linkler",
+    href: "/linkler",
+  },
+  {
+    name: "Araçlar",
+    href: "/araclar",
+  },
+  {
+    name: "E-Fatura",
+    href: "/efatura",
+  },
+  {
+    name: "BEK Akademi",
+    href: "/bek-akademi",
+  },
+];

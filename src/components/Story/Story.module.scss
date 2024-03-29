@@ -15,9 +15,24 @@
     position: relative;
     border-radius: 50%;
     border: 3px solid green;
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
     img {
       border-radius: 50%;
+      cursor: pointer;
     }
+  }
+
+  .title {
+    font-size: 12px;
+    margin-top: 6px;
+    font-weight: 500;
+    height: 30px;
+    color: $primary-font-color;
   }
   .viewed {
     border: 3px solid red;
