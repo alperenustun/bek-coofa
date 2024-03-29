@@ -22,13 +22,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
   bekPoint,
 }) => {
   const [quantity, setQuantity] = useState<number>(0);
+  const [alertedProduct, setAlertedProduct] = useState<boolean>(false);
   const { id, title, image, price } = product;
 
   const canAfford = bekPoint >= price * Math.max(quantity, 1);
 
   const handleQuantity = (type: "increment" | "decrement") => {
     if (type === "increment" && !canAfford) {
-      alert("Yetersiz Bek Puanı!");
+      setAlertedProduct(true);
+      setTimeout(() => {
+        setAlertedProduct(false);
+      }, 1000);
       return;
     }
     if (type === "decrement" && quantity === 0) return;
@@ -39,8 +43,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
     updateBekPoint(quantityChange * price);
   };
 
+  const productCardStyles = `${styles.main} ${
+    alertedProduct && styles.alerted
+  }`;
+
   return (
-    <div className={styles.main}>
+    <div className={productCardStyles}>
       <Link href={`urunler/${product.id}`}>
         <Image
           src={image}
@@ -49,26 +57,30 @@ const ProductCard: React.FC<ProductCardProps> = ({
           height={200}
           style={{ width: "100%", height: "200px" }}
         />
-        <h3 className={styles.title}>{title}</h3>
+        <h3 className={styles.title}>{!alertedProduct && title}</h3>
       </Link>
-      <div className={styles.pricesWrapper}>
-        <p>{price} BEK Puan</p>
-        <div className={styles.quantityWrapper}>
-          <span
-            className={styles.quantityHandleBtn}
-            onClick={() => handleQuantity("decrement")}
-          >
-            -
-          </span>
-          <span>{quantity}</span>
-          <span
-            className={styles.quantityHandleBtn}
-            onClick={() => handleQuantity("increment")}
-          >
-            +
-          </span>
+      {alertedProduct ? (
+        <p>Yetersiz BEK Puanı...</p>
+      ) : (
+        <div className={styles.pricesWrapper}>
+          <p>{price} BEK Puan</p>
+          <div className={styles.quantityWrapper}>
+            <span
+              className={styles.quantityHandleBtn}
+              onClick={() => handleQuantity("decrement")}
+            >
+              -
+            </span>
+            <span>{quantity}</span>
+            <span
+              className={styles.quantityHandleBtn}
+              onClick={() => handleQuantity("increment")}
+            >
+              +
+            </span>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
