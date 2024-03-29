@@ -69,3 +69,11 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-md) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+}

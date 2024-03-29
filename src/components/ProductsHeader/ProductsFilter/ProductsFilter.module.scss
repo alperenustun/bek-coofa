@@ -1,3 +1,5 @@
+@import "../../../styles/abstracts/variables";
+
 .searchbar {
   display: flex;
   justify-content: center;
@@ -13,10 +15,20 @@
     padding: 0 1em;
   }
 
-  .searchIcon{
+  .searchIcon {
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .searchbar {
+    width: 100%;
+    .searchbarInput {
+      width: 100%;
+      height: 50px;
+    }
   }
 }
