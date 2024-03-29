@@ -5,16 +5,25 @@
   overflow-x: hidden;
   -ms-overflow-style: none;
   scrollbar-width: thin;
-  scrollbar-color: #d7d4d6 #fff;
+  scrollbar-color: #bebebe #fff;
   resize: none;
 
   &::-webkit-scrollbar {
     width: 4px;
-    height: 4px;
+    height: 2px;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 8px;
+    background-color: red;
+  }
+  &::-webkit-scrollbar-thumb:horizontal {
+    background: #000;
+    border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: #d7d4d6;
   }
 }

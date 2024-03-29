@@ -5,6 +5,7 @@ import { Product } from "@/types/product";
 import ProductsHeader from "@/components/ProductsHeader/ProductsHeader";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import CheckoutSidebar from "@/components/CheckoutSidebar/CheckoutSidebar";
+import Loading from "@/components/Loading/Loading";
 
 export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -36,7 +37,7 @@ export default function Products() {
   );
 
   if (loading) {
-    return <p>Yükleniyor...</p>;
+    return <Loading />;
   }
 
   if (error) {

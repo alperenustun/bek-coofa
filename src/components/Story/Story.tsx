@@ -24,7 +24,7 @@ const Story: React.FC<StoryProps> = ({ imageUrl, name }) => {
       <div className={wrapperStyle}>
         <Image src={imageUrl} alt="story" layout="fill" objectFit="cover" />
       </div>
-      <p>{name}</p>
+      <p className={styles.title}>{name}</p>
 
       {isOpen && (
         <div className={styles.photoOverlay}>
