@@ -1,14 +1,16 @@
 import Image from "next/image";
 import styles from "./CheckoutSidebar.module.scss";
 
-interface CheckoutSidebarProps {}
+interface CheckoutSidebarProps {
+  bekPoint: number;
+}
 
-const CheckoutSidebar: React.FC<CheckoutSidebarProps> = () => {
+const CheckoutSidebar: React.FC<CheckoutSidebarProps> = ({ bekPoint }) => {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.pointDisplayer}>
         <p>BEK Puanınız: </p>
-        <span className={styles.bekPoint}>100</span>
+        <span className={styles.bekPoint}>{bekPoint.toFixed(2)}</span>
       </div>
 
       <div className={styles.cartContainer}>

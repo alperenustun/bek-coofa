@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./ProductCard.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 interface ProductCardProps {
@@ -12,20 +12,31 @@ interface ProductCardProps {
     image: string;
     price: number;
   };
+  updateBekPoint: (price: number) => void;
+  bekPoint: number;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  updateBekPoint,
+  bekPoint,
+}) => {
   const [quantity, setQuantity] = useState<number>(0);
-  const { id, title, description, image, price } = product;
+  const { id, title, image, price } = product;
 
-  const handleQuantity = (type: string) => {
-    if (type === "increment") {
-      setQuantity((prevQuantity) => prevQuantity + 1);
-    } else {
-      if (quantity > 0) {
-        setQuantity((prevQuantity) => prevQuantity - 1);
-      }
+  const canAfford = bekPoint >= price * Math.max(quantity, 1);
+
+  const handleQuantity = (type: "increment" | "decrement") => {
+    if (type === "increment" && !canAfford) {
+      alert("Yetersiz Bek Puanı!");
+      return;
     }
+    if (type === "decrement" && quantity === 0) return;
+
+    const quantityChange = type === "increment" ? 1 : -1;
+
+    setQuantity((prevQuantity) => Math.max(0, prevQuantity + quantityChange));
+    updateBekPoint(quantityChange * price);
   };
 
   return (

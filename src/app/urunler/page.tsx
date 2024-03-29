@@ -12,6 +12,7 @@ export default function Products() {
   const [filterValue, setFilterValue] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [bekPoint, setBekPoint] = useState<number>(135);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -31,6 +32,10 @@ export default function Products() {
 
     fetchProducts();
   }, []);
+
+  const updateBekPoint = (price: number) => {
+    setBekPoint((prevBekPoint) => prevBekPoint - price);
+  };
 
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(filterValue.toLowerCase())
@@ -53,10 +58,15 @@ export default function Products() {
       <main className={styles.content}>
         <div className={styles.productsContainer}>
           {filteredProducts.map((product: any) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              updateBekPoint={updateBekPoint}
+              bekPoint={bekPoint}
+            />
           ))}
         </div>
-        <CheckoutSidebar />
+        <CheckoutSidebar bekPoint={bekPoint} />
       </main>
     </div>
   );
