@@ -41,5 +41,11 @@
 @media (max-width: $breakpoint-md) {
   .main {
     flex-direction: column-reverse;
+
+    @for $i from 1 through 5 {
+      .content#{$i} {
+        grid-column: 1 / -1 !important;
+      }
+    }
   }
 }
