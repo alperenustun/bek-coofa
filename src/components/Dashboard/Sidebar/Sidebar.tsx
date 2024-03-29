@@ -12,10 +12,11 @@ const SidebarDropdown: React.FC = () => {
         onClick={() => setIsOpen((prevOpen) => !prevOpen)}
         className={styles.dropdownTitleWrapper}
       >
-        <h3>MENÜ</h3>
+        <h3 className={styles.dropdownTitle}>MENÜ</h3>
         <img
-          src="/hamburger-icon.svg"
-          style={{ width: "24px", height: "24px" }}
+          src="/down-arrow.svg"
+          style={{ transform: isOpen ? "rotate(180deg)" : "" }}
+          className={styles.dropdownIcon}
         />
       </div>
       {isOpen && (
