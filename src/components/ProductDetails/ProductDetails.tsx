@@ -1,6 +1,12 @@
 import { Product } from "@/types/product";
 import styles from "./ProductDetails.module.scss";
 import { makeDiscount } from "@/utils/makeDiscount";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Product Details",
+  description: "Product details page",
+};
 
 interface ProductDetailsProps {
   product: Product;
