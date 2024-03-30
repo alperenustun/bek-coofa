@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./ProductCard.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 interface ProductCardProps {
