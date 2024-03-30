@@ -7,7 +7,6 @@ import type { Metadata } from "next";
 
 type Props = {
   params: { productId: string };
-  product: Product;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -22,7 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-async function ProductDetailsPage({ params, product }: Props) {
+interface ProductDetailsProps {
+  params: { productId: string };
+}
+
+async function ProductDetailsPage({ params }: ProductDetailsProps) {
   const { productId } = params;
 
   try {
