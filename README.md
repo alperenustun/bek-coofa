@@ -2,6 +2,7 @@
 
 ## Features
 
+- Caching mechanisms to prevent redundant data fetching, optimizing performance and reducing network overload.
 - Used modular file structure using SCSS modules for better scoping and to avoid style conflicts.
 - Used dynamic routing and component communication.
 - Used Client-Side Rendering (CSR) to optimize performance and interactivity.
