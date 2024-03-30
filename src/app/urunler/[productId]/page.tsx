@@ -4,6 +4,8 @@ import styles from "./page.module.scss";
 import { Product } from "@/types/product";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import ProductDetails from "@/components/ProductDetails/ProductDetails";
+import Loading from "@/components/Loading/Loading";
 
 export default function Products() {
   const [product, setProduct] = useState<Product>();
@@ -34,7 +36,7 @@ export default function Products() {
   }, []);
 
   if (loading) {
-    return <p>Yükleniyor...</p>;
+    return <Loading />;
   }
 
   if (error) {
@@ -42,14 +44,9 @@ export default function Products() {
   }
 
   return (
-    <div className={styles.main}>
-      <Link href="/urunler">Geri Dön</Link>
-      <div className={styles.card}>
-        <h1>{product?.title}</h1>
-        <p>{product?.description}</p>
-        <img src={product?.image} alt={product?.title} />
-        <p>{product?.price} BEK Puan</p>
-      </div>
-    </div>
+    <main className={styles.main}>
+      <Link className={styles.returnBtn} href="/urunler">Geri Dön</Link>
+      {product && <ProductDetails product={product} />}
+    </main>
   );
 }
