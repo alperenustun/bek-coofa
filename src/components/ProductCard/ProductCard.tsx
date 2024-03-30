@@ -55,7 +55,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           alt={title}
           width={200}
           height={200}
-          style={{ width: "100%", height: "200px" }}
+          className={styles.productImage}
         />
         <h3 className={styles.title}>{!alertedProduct && title}</h3>
       </Link>

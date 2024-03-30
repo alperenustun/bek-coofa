@@ -1,8 +1,18 @@
+@import "../../../styles/abstracts/index";
+
 .main {
-  border: 2px solid green;
   min-height: 100vh;
+  margin-bottom: 50px;
   display: grid;
   place-content: center;
+  @extend %main-container;
+
+  .returnBtn {
+    @extend %return-button;
+    width: 150px;
+    text-align: center;
+    margin: 50px 0;
+  }
 }
 
 .card {
